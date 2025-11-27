@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Triggering an alert when user opens/load the NeedIt form</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Trigger alert onLoad NeedIt form</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+   //Type appropriate comment here, and begin script below
+   alert('Thank you for loading the needIt form, click on ok to continue with the form.');
+
+	if (g_form.getValue('priority')==1){
+		alert('This is a Priority 1 task, handled it ASAP.');
+	}
+	else if(g_form.getValue('priority')==4){
+		alert('This is a Priority 4 task, handled it accordingly.');
+	}
+
+	if(g_form.getValue('priority')==4){
+		g_form.showFieldMsg('priority', 'This is a less priority task', 'info');
+	}
+	g_form.addDecoration('priority', 'icon-star', 'preferred member'); // To add any decoration to already present fields
+
+	if(g_form.isNewRecord()){
+		g_form.addInfoMessage('New Record');
+	}else{
+		g_form.addInfoMessage('Existing Record');
+	}
+
+	var currentDescription = g_form.getValue('description');
+
+	g_form.setValue('comments', 'Record Description');
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-11-27 07:17:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>6fb1dd58c365b2101148bdac050131f6</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>Trigger alert onLoad NeedIt form</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_6fb1dd58c365b2101148bdac050131f6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-11-27 08:28:47</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
